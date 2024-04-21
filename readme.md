@@ -1,4 +1,4 @@
-# sistema-login
+# Sistema-login
 Este é um sistema de login simples desenvolvido em PHP para a cadeira de Backend da faculdade, com as funcionalidades de registro e login de usuário. 
 
 # Funcionalidades
