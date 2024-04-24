@@ -63,7 +63,7 @@ form {
   top: -17px;
   color: #007bff;
 }
-#btn_senha{
+#btn_senha{  /* botão para ver a senha */
   opacity: 0;
   position: absolute;
   right: 10px;

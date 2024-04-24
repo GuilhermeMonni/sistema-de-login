@@ -64,6 +64,14 @@ form {
   top: -17px;
   color: #007bff;
 }
+#btn_senha_cad{
+  opacity: 0;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 button {
   width: 150px;
   height: 30px;
