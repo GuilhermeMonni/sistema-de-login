@@ -1,5 +1,4 @@
 let email = document.getElementById("input_email");
-let icon_email = document.getElementById("icon_email");
 
 function eye_pass() {
     let senha = document.getElementById("input_senha");

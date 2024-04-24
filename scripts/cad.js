@@ -1,7 +1,9 @@
 function on_pass_cad() {
-  let btn_senha_cadastro = document.getElementById("btn_senha_cad");
+  let btn_senha_cad = document.getElementById("btn_senha_cad");
+  let icon_senha = document.getElementById("icon_senha")
 
-  btn_senha_cadastro.style.opacity = 1;
+  icon_senha.style.opacity = 0;
+  btn_senha_cad.style.opacity = 1;
 }
 
 function eye_pass_cad(){

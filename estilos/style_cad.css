@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
 }
-:root{
+:root {
   --colorForm: rgba(255, 255, 255, 0.308);
 }
 body {
@@ -64,7 +64,14 @@ form {
   top: -17px;
   color: #007bff;
 }
-#btn_senha_cad{
+.form_icons,
+#icon_senha {
+  position: absolute;
+  top: 14px;
+  right: 10px;
+  width: 13px;
+}
+#btn_senha_cad {
   opacity: 0;
   position: absolute;
   right: 10px;
@@ -83,6 +90,6 @@ button {
   font-weight: bolder;
   background-color: #007bffa5;
 }
-button:hover{
+button:hover {
   background-color: #007bff;
 }

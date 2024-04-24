@@ -41,14 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {  //se existir cont nos inputs
         <div class="form_div">
             <input type="text" name="nome" required>
             <label for="nome" class="form_label">Nome</label>
+            <img src="imagens/icon_login.png" alt="Icone de login" class="form_icons">
         </div>
         <div class="form_div">
             <input type="text" name="email" required>
             <label for="email" class="form_label">Email</label>
+            <img src="imagens/icon_post.png" alt="Icone de email" class="form_icons">
         </div>
         <div class="form_div">
             <input type="password" name="senha" id="input_senha" oninput="on_pass_cad()" required>
             <label for="senha" class="form_label">Senha</label>
+            <img src="imagens/icon_senha.png" alt="Icone de senha" id="icon_senha">
             <i class="bi bi-eye-fill" id="btn_senha_cad" onclick="eye_pass_cad()"></i>
         </div>
         <Button type="submit">Finalizar</Button>

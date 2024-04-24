@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <div class="form_div">
             <input type="text" name="email" id="input_email" required>
             <label for="email">E-mail</label>
-            <img src="imagens/icon_email.png" alt="Icone email" id="icon_email">
+            <img src="imagens/icon_login.png" alt="Icone email" id="icon_login">
         </div>
         <div class="form_div">
             <input type="password" name="senha" id="input_senha" oninput="on_pass()" required>
