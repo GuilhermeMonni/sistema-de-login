@@ -19,7 +19,8 @@ Este é um sistema de login simples desenvolvido em PHP para a cadeira de Backen
 
 
 # Estrutura do Projeto
-* index01.js: Script com algumas funções do projeto.
+* index01.js: Script com algumas funções da página de login.
+* cad.js: Script com algumas funções da página de cadastro.
 * cadastrado.php: Página para confirmar se o usuário foi cadastrado.
 * cadastro.php: Página para cadastrar usuário.
 * conexao.php: Arquivo de configuração com as credenciais do banco.
