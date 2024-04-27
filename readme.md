@@ -34,7 +34,6 @@ Este é um sistema de login simples desenvolvido em PHP para a cadeira de Backen
 
 
 # Em breve
-- A responsividade deste projeto está em andamento.
 - Algumas outras funcionalidades estão sendo desenvolvidas.
 
 
