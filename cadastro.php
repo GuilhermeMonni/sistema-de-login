@@ -57,5 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {  //se existir cont nos inputs
         <Button type="submit">Finalizar</Button>
     </form>
 </body>
+<footer>
+    <img src="imagens/logo-monni.png" alt="Logo">
+</footer>
 
 </html>

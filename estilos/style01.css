@@ -6,7 +6,7 @@
   margin: 0;
   padding: 0;
 }
-:root{
+:root {
   --colorForm: rgba(255, 255, 255, 0.308);
 }
 body {
@@ -27,7 +27,7 @@ h1 {
   font-size: 2.5em;
 }
 form {
-  margin: 110px auto;
+  margin: 130px auto;
   background-color: var(--colorForm);
   width: 500px;
   height: 360px;
@@ -63,7 +63,8 @@ form {
   top: -17px;
   color: #007bff;
 }
-#btn_senha{  /* botão para ver a senha */
+#btn_senha {
+  /* botão para ver a senha */
   opacity: 0;
   position: absolute;
   right: 10px;
@@ -77,8 +78,8 @@ form {
   top: 40%;
   transform: translateY(-50%);
 }
-.cadastro{
-    margin: 20px auto;
+.cadastro {
+  margin: 20px auto;
 }
 form p {
   font-family: "Roboto", sans-serif;
@@ -87,7 +88,7 @@ form p {
   font-size: 0.9em;
   color: rgb(53, 53, 53);
 }
-form a{
+form a {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 1em;
@@ -107,7 +108,57 @@ button {
   border: none;
   box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.185);
 }
-button:hover{
+button:hover {
   scale: 1.03;
   cursor: pointer;
+}
+footer img{
+  width: 4%;
+  position: fixed;
+  left: 2px;
+  bottom: 2px;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    overflow: hidden;
+    background-image: url(../imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  form {
+    margin: 20% auto;
+    background-color: var(--colorForm);
+    width: 86%;
+    height: 360px;
+    padding: 10px;
+  }
+  footer img{
+    width: 13%;
+    position: fixed;
+    left: 2px;
+    bottom: 2px;
+  }
+}
+
+@media screen and (710px <= width <= 1050px) {
+  body {
+    overflow: hidden;
+    background-image: url(../imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  form {
+    margin: 10% auto;
+    background-color: var(--colorForm);
+    width: 86%;
+    height: 360px;
+    padding: 10px;
+  }
+  footer img{
+    width: 13%;
+    position: fixed;
+    left: 2px;
+    bottom: 2px;
+  }
 }

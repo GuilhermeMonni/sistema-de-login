@@ -55,3 +55,46 @@ h3{
     font-weight: lighter;
     font-size: 1.5em;
 }
+footer img{
+  width: 4%;
+  position: fixed;
+  left: 2px;
+  bottom: 2px;
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    overflow: hidden;
+    background-image: url(../imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  footer img{
+    width: 13%;
+    position: fixed;
+    left: 2px;
+    bottom: 2px;
+  }
+}
+
+@media screen and (710px <= width <= 1050px) {
+  body {
+    overflow: hidden;
+    background-image: url(../imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+  form {
+    margin: 10% auto;
+    background-color: var(--colorForm);
+    width: 86%;
+    height: 360px;
+    padding: 10px;
+  }
+  footer img{
+    width: 13%;
+    position: fixed;
+    left: 2px;
+    bottom: 2px;
+  }
+}

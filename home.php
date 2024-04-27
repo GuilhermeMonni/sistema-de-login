@@ -16,7 +16,7 @@ if(!isset($_SESSION['nome'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/style_home.css">
+    <link rel="stylesheet" href="estilos/style01_home.css">
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
     <title>Início</title>
 </head>
@@ -33,5 +33,8 @@ if(!isset($_SESSION['nome'])){
     </div>
     <h3>Seja bem vindo a tela de início!</h3>
 </body>
+    <footer>
+        <img src="imagens/logo-monni.png" alt="Logo">
+    </footer>
 
 </html>

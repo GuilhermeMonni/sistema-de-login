@@ -60,6 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         </div>
         <button type="submit">Entrar</button>
     </form>
+    <footer>
+        <img src="imagens/logo-monni.png" alt="Logo">
+    </footer>
 </body>
 
 </html>

@@ -29,7 +29,7 @@ Este é um sistema de login simples desenvolvido em PHP para a cadeira de Backen
 * logout.php: Página de logout do usuário.
 * protect2.php: Página para impedir que seja cadastrado email repetido.
 * style_cad.css: Estilização da página cadastro (cadastro.php).
-* style_home.css: Estilização da página de início (home.php).
+* style01_home.css: Estilização da página de início (home.php).
 * style01.css: Estilização da página de login (index.php).
 
 
