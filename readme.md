@@ -33,9 +33,6 @@ Este é um sistema de login simples desenvolvido em PHP para a cadeira de Backen
 * style01.css: Estilização da página de login (index.php).
 
 
-# Em breve
-- Algumas outras funcionalidades estão sendo desenvolvidas.
-
 
 
 # Observações
