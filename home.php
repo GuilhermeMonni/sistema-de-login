@@ -33,10 +33,9 @@ if(!isset($_SESSION['id'])){
         <img src="imagens/icon_email.png" alt="Icone usuário">
         <p><?php echo htmlspecialchars($_SESSION['nome'], ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
-    <h3>Seja bem vindo a tela de início!</h3>
+    <footer>
+        © 2025 KindlyHelp • Gravataí, RS • gmonni002@gmail.com
+    </footer>
 </body>
-<footer>
-    © 2025 KindlyHelp • Gravataí, RS • gmonni002@gmail.com
-</footer>
 
 </html>
