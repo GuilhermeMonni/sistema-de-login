@@ -1,15 +1,15 @@
 <?php
 require_once("conexao.php");
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {  //se existir cont nos inputs
-    $nome = ($_POST['nome']);    //variaveis dos inputs e evitando sql injection
+if ($_SERVER['REQUEST_METHOD'] == "POST") {  
+    $nome = ($_POST['nome']); 
     $email = ($_POST['email']);
     $senha = ($_POST['senha']);
     $hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql_code = "SELECT * FROM usuarios WHERE email ='$email'"; //fazendo validação do email
+    $sql_code = "SELECT * FROM usuarios WHERE email ='$email'";
     $sql = $mysqli->query($sql_code);
-    $quantidade = $sql->num_rows;       //linhas encontradas
+    $quantidade = $sql->num_rows;  
 
     if ($quantidade == 1) {
         include("protect2.php");
