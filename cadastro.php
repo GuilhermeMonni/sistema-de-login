@@ -1,22 +1,47 @@
 <?php
 require_once("conexao.php");
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {  
-    $nome = ($_POST['nome']); 
-    $email = ($_POST['email']);
-    $senha = ($_POST['senha']);
+if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['nome'])) {  
+    $nome = trim($_POST['nome']);
+    $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+    $senha = trim($_POST['senha']);
     $hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql_code = "SELECT * FROM usuarios WHERE email ='$email'";
-    $sql = $mysqli->query($sql_code);
-    $quantidade = $sql->num_rows;  
+    if(empty($nome) || empty($email) || empty($senha)){
+        die("Todos os campos são obrigatórios!");
+    }
 
-    if ($quantidade == 1) {
+    if(!$email){
+        die("E-mail inválido!");
+    }
+
+    if(strlen($senha) < 8){
+        die("A senha deve ter no mínimo 8 caracteres!");
+    }
+
+    if(strlen($nome) < 3){
+        die("O nome deve ter no mínimo 3 caracteres!");
+    }
+
+    $sql = $mysqli->prepare("SELECT * FROM usuarios WHERE EMAIL = ?");
+    $sql->bind_param("s", $email);
+    $sql->execute();
+    $result = $sql->get_result();
+    $count = $result->num_rows;
+    
+
+    if ($count == 1) {
         include("protect2.php");
     } else {
-        $sql_insert = "insert into usuarios (nome, email, senha) values('$nome', '$email', '$hash')";
-        $sql_query = $mysqli->query($sql_insert) or die("Falha" . $mysqli->connect_error);
-        include("cadastrado.php");
+        $sql_insert = $mysqli->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(?, ?, ?)");
+        $sql_insert->bind_param("sss", $nome, $email, $hash);
+        $sql_insert->execute();
+        
+        if($sql_insert->affected_rows > 0){
+            include("cadastrado.php");
+        }else{
+            die("Erro ao cadastrar usuário.");
+        }
     }
 }
 
