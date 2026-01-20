@@ -31,7 +31,7 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['nome'])) {
     
 
     if ($count == 1) {
-        include("protect2.php");
+        die("Este email já está cadastrado! <p><a href='cadastro.php'>Tentar outro email</a></p>");
     } else {
         $sql_insert = $mysqli->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(?, ?, ?)");
         $sql_insert->bind_param("sss", $nome, $email, $hash);
