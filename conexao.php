@@ -8,7 +8,8 @@
         );  //database
         
     if($mysqli->connect_errno){ //err
-        die("Falha ao conectar: (" . $mysqli->connect_errno . ")");
+        error_log("Erro de conexão: " . $mysqli ->connect_error); //save in log
+        die("Erro ao conectar com o banco.");
     }
 
 ?>
