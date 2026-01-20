@@ -1,10 +1,12 @@
 <?php
 
-require_once("conexao.php");
 session_start();
+require_once("conexao.php");
 
-if(!isset($_SESSION['nome'])){
-    die("Você precisa estar logado para acessar essa página! <p><a href=\"index.php\">Fazer login</a></p>");
+if(!isset($_SESSION['id'])){
+    $_SESSION['erro'] = "Você precisa estar logado para acessar essa página!";
+    header("Location: index.php");
+    exit();
 }
 
 ?>
@@ -23,18 +25,18 @@ if(!isset($_SESSION['nome'])){
 
 <body>
     <div class="lougout">
-        <button type="button" value="Sair" onclick="location.href='logout.php'" id="btn_logout">
-            <p>Sair</p>
+        <button type="button" id="btn_logout" onclick=" location.href='logout.php'" id=" btn_logout">
+            Sair
         </button>
     </div>
     <div class="usuario">
         <img src="imagens/icon_email.png" alt="Icone usuário">
-        <p><?php echo $_SESSION['nome']; ?></p>
+        <p><?php echo htmlspecialchars($_SESSION['nome'], ENT_QUOTES, 'UTF-8'); ?></p>
     </div>
     <h3>Seja bem vindo a tela de início!</h3>
 </body>
-    <footer>
-        <img src="imagens/logo-monni.png" alt="Logo">
-    </footer>
+<footer>
+    © 2025 KindlyHelp • Gravataí, RS • gmonni002@gmail.com
+</footer>
 
 </html>
