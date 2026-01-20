@@ -1,26 +1,40 @@
 <?php
-require_once("conexao.php");     //pagina de conexão com o banco
+session_start();
+require_once("conexao.php");     
+$err = '';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $email = $mysqli->real_escape_string($_POST['email']);
-    $senha = $mysqli->real_escape_string($_POST['senha']);
+    $email = $mysqli($_POST['email']);
+    $senha = $mysqli($_POST['senha']);
 
-    $sql = $mysqli->prepare("SELECT nome, senha FROM usuarios WHERE email = ?");
-    $sql->bind_param("s", $email);
-    $sql->execute();
-    $resultado = $sql->get_result();
-    $usuario = $resultado->fetch_assoc();
-
-    if ($resultado->num_rows === 1) {
-        if ($usuario && password_verify($senha, $usuario['senha'])) {
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
-            header("Location: home.php");
+    if(empty($_POST['email']) || empty($_POST['senha'])){
+        $erro = "Preencha todos os campos!";
+    } else {
+        $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+        $senha = trim($_POST['senha']);
+        
+        if(!$email){
+            $erro = "E-mail inválido!";
         } else {
-            echo "E-mail ou senha incorretos!";
+            $sql = $mysqli->prepare("SELECT id, nome, senha FROM usuarios WHERE email = ?");
+            $sql->bind_param("s", $email);
+            $sql->execute();
+            $resultLogin = $sql->get_result();
+            $userLogin = $resultLogin->fetch_assoc();
+
+            if ($resultLogin->num_rows === 1) {
+                if ($userLogin && password_verify($senha, $userLogin['senha'])) {
+                    session_regenerate_id(true);
+                    $_SESSION['id'] = $userLogin['id'];
+                    $_SESSION['nome'] = $userLogin['nome'];
+                    header("Location: home.php");
+                    exit();
+                } else {
+                    $err = "E-mail ou senha incorretos!";
+                }
+            } else {
+                $err = "E-mail ou senha incorretos!";
+            }
         }
     }
 }
@@ -40,6 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body>
+    <?php if($err): ?>
+    <div class="erro"><?php echo htmlspecialchars($erro); ?></div>
+    <?php endif; ?>
     <form action="index.php" method="POST">
         <h1>Login</h1>
         <div class="form_div">
@@ -51,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <input type="password" name="senha" id="input_senha" oninput="on_pass()" required>
             <label for="senha">Senha</label>
             <img src="imagens/icon_senha.png" alt="Icone senha" id="icon_senha">
-            <i class="bi bi-eye-fill" id="btn_senha" onclick="eye_pass()"></i> <!--bi bi-eye-slash-fill-->
+            <i class="bi bi-eye-fill" id="btn_senha" onclick="eye_pass()"></i>
+            <!--bi bi-eye-slash-fill-->
         </div>
         <div class="cadastro">
             <p>
