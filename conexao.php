@@ -1,11 +1,22 @@
 <?php
 
-    $mysqli = new mysqli(
-        getenv('DB_HOST'), 
-        getenv('DB_USER'), 
-        getenv('DB_PASS'), 
-        getenv('DB_NAME')
-        );  //database
+    $server_remote = true; 
+
+    if ($server_remote) {
+        $mysqli = new mysqli(
+            getenv('DB_HOST'), 
+            getenv('DB_USER'), 
+            getenv('DB_PASS'), 
+            getenv('DB_NAME')
+        );
+    } else {
+        $mysqli = new mysqli(
+            'localhost',
+            'root',
+            '',
+            'banco'
+        );
+    }
         
     if($mysqli->connect_errno){ //err
         error_log("Erro de conexão: " . $mysqli ->connect_error); //save in log
