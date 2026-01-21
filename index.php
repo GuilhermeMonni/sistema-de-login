@@ -1,20 +1,17 @@
 <?php
 session_start();
-require_once("conexao.php");     
-$err = '';
+require_once("conexao.php");  
+$error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $email = $mysqli($_POST['email']);
-    $senha = $mysqli($_POST['senha']);
-
     if(empty($_POST['email']) || empty($_POST['senha'])){
-        $erro = "Preencha todos os campos!";
+        $error = "Preencha todos os campos!";
     } else {
         $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
         $senha = trim($_POST['senha']);
         
         if(!$email){
-            $erro = "E-mail inválido!";
+            $error = "E-mail inválido!";
         } else {
             $sql = $mysqli->prepare("SELECT id, nome, senha FROM usuarios WHERE email = ?");
             $sql->bind_param("s", $email);
@@ -30,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     header("Location: home.php");
                     exit();
                 } else {
-                    $err = "E-mail ou senha incorretos!";
+                    $error = "E-mail ou senha incorretos!";
                 }
             } else {
-                $err = "E-mail ou senha incorretos!";
+                $error = "E-mail ou senha incorretos!";
             }
         }
     }
@@ -54,8 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body>
-    <?php if($err): ?>
-    <div class="erro"><?php echo htmlspecialchars($erro); ?></div>
+    <?php if($error): ?>
+    <div class="erro"><?php echo htmlspecialchars($error); ?></div>
     <?php endif; ?>
     <form action="index.php" method="POST">
         <h1>Login</h1>

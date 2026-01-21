@@ -25,7 +25,7 @@ if(!isset($_SESSION['id'])){
 
 <body>
     <div class="lougout">
-        <button type="button" id="btn_logout" onclick=" location.href='logout.php'" id=" btn_logout">
+        <button type="button" id="btn_logout" onclick=" location.href='logout.php'">
             Sair
         </button>
     </div>
