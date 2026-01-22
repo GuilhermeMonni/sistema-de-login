@@ -1,16 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Farsan&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700; 1.900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 * {
+  overflow: hidden;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 :root {
-  --colorForm: rgba(255, 255, 255, 0.308);
+    /* colors */
+  --colorForm: #ffffff4f;
+  --colorAzul: #1a73e8;
+  --colorAzulSecundary: #0D47A1;
+  --colorWhiteSnow: #F5F5F5;
+  --colorWhite: #FFFFFF;
+  --colorBlack: #202124;
+
+  /* fonts */
+  --fontRoboto: "Roboto", sans-serif;
+  --fontFarsan: "Farsan", cursive;
+  --fontVarela: "Varela Round", sans-serif;
 }
 body {
-  overflow: hidden;
   margin: 10px auto;
   text-align: center;
   background-image: url(../imagens/fundo.jpg);
@@ -100,47 +112,5 @@ footer img{
   bottom: 2px;
 }
 
-@media screen and (max-width: 700px) {
-  body {
-    overflow: hidden;
-    background-image: url(../imagens/fundo.jpg);
-    background-repeat: no-repeat;
-    background-size: auto;
-  }
-  form {
-    margin: 20% auto;
-    background-color: var(--colorForm);
-    width: 86%;
-    height: 360px;
-    padding: 10px;
-  }
-  footer img{
-    width: 13%;
-    position: fixed;
-    left: 2px;
-    bottom: 2px;
-  }
-}
 
-@media screen and (710px <= width <= 1050px) {
-  body {
-    overflow: hidden;
-    background-image: url(../imagens/fundo.jpg);
-    background-repeat: no-repeat;
-    background-size: auto;
-  }
-  form {
-    margin: 10% auto;
-    background-color: var(--colorForm);
-    width: 86%;
-    height: 360px;
-    padding: 10px;
-  }
-  footer img{
-    width: 13%;
-    position: fixed;
-    left: 2px;
-    bottom: 2px;
-  }
-}
 
