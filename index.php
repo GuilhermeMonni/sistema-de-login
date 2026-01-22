@@ -43,9 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/style01.css">
+    <link rel="stylesheet" href="estilos/style-index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="scripts/index01.js"></script>
+    <script src="scripts/index.js"></script>
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
     <title>Login</title>
 </head>
@@ -54,8 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <?php if($error): ?>
     <div class="erro"><?php echo htmlspecialchars($error); ?></div>
     <?php endif; ?>
+    <h1>Dashnet</h1>
     <form action="index.php" method="POST">
-        <h1>Login</h1>
+        <h3 id="subtitle">Faça o login ou cadastre-se</h3>
         <div class="form_div">
             <input type="text" name="email" id="input_email" required>
             <label for="email">E-mail</label>
@@ -66,7 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <label for="senha">Senha</label>
             <img src="imagens/icon_senha.png" alt="Icone senha" id="icon_senha">
             <i class="bi bi-eye-fill" id="btn_senha" onclick="eye_pass()"></i>
-            <!--bi bi-eye-slash-fill-->
         </div>
         <div class="cadastro">
             <p>
@@ -77,6 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </form>
     <footer>
         <img src="imagens/logo-monni.png" alt="Logo">
+        <p>© 2025 Dashnet • Gravataí, RS • gmonni20@gmail.com</p>
     </footer>
 </body>
 
