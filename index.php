@@ -77,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </form>
     <footer>
         <img src="imagens/logo-monni.png" alt="Logo">
-        <p>© 2025 Dashnet • Gravataí, RS • gmonni20@gmail.com</p>
+        <p>©2026 Dashnet • Gravataí, RS • gmonni20@gmail.com</p>
     </footer>
 </body>
 

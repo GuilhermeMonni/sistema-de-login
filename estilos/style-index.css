@@ -61,10 +61,12 @@ form {
   padding: 0.62rem;
   border-radius: 10px;
   margin-bottom: 0.62rem;
+  border: 2px solid var(--colorAzul);
+  box-shadow: 1px 1px 4px var(--colorAzul);
 }
 .form_div label {
   position: absolute;
-  top: 0.62rem;
+  top: .7rem;
   left: 0.62rem;
   font-size: 0.9em;
   color: lightgray;
@@ -107,7 +109,7 @@ form p:hover{
     color: var(--colorWhite);
 }
 form a {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--fontRoboto);
   font-weight: 500;
   font-size: 1em;
   color: rgb(14, 113, 193);
