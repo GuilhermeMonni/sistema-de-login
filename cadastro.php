@@ -53,16 +53,18 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['nome'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/style-cadastro.css">
+    <link rel="stylesheet" href="estilos/style-main.css">
+    <link rel="stylesheet" href="estilos/style-root.css">
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
-    <script src="scripts/cad.js"></script>
+    <script src="scripts/eyesScript.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Cadastre-se</title>
 </head>
 
 <body>
+    <h1>Dashnet</h1>
     <form action="cadastro.php" method="POST">
-        <h1>Cadastre-se</h1>
+        <h3 id="subtitle">Insira as seguintes informações:</h3>
         <div class="form_div">
             <input type="text" name="nome" required>
             <label for="nome" class="form_label">Nome</label>
@@ -74,10 +76,10 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['nome'])) {
             <img src="imagens/icon_post.png" alt="Icone de email" class="form_icons">
         </div>
         <div class="form_div">
-            <input type="password" name="senha" id="input_senha" oninput="on_pass_cad()" required>
+            <input type="password" name="senha" id="input_senha" oninput="on_pass()" required>
             <label for="senha" class="form_label">Senha</label>
             <img src="imagens/icon_senha.png" alt="Icone de senha" id="icon_senha">
-            <i class="bi bi-eye-fill" id="btn_senha_cad" onclick="eye_pass_cad()"></i>
+            <i class="bi bi-eye-fill" id="btn_senha" onclick="eye_pass()"></i>
         </div>
         <Button type="submit">Finalizar</Button>
     </form>

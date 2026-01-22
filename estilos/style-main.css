@@ -21,7 +21,8 @@ form {
   background-color: var(--colorBlack);
   color: var(--colorWhite);
   width: 31.25rem;
-  height: 22.5rem;
+  min-height: 22.5rem;
+  max-height: 25rem;
   padding: 0.6rem;
   border-radius: 5px;
 }
@@ -37,8 +38,6 @@ form {
   padding: 0.62rem;
   border-radius: 10px;
   margin-bottom: 0.62rem;
-  border: 2px solid var(--colorAzul);
-  box-shadow: 1px 1px 4px var(--colorAzul);
 }
 .form_div label {
   position: absolute;
@@ -52,9 +51,7 @@ form {
 }
 .form_div input:focus + label,
 .form_div input:valid + label {
-  font-size: 0.7em;
   top: -1rem;
-  color: var(--colorAzul);
 }
 #btn_senha {
   /* btn look the password */
@@ -64,6 +61,7 @@ form {
   top: 40%;
   transform: translateY(-50%);
   cursor: pointer;
+  color: var(--colorBlack);
 }
 .form_div img {
   position: absolute;
@@ -111,7 +109,6 @@ button:hover {
 }
 footer{
     width: 100%;
-    
     position: fixed;
     bottom: 2px;
     font-family: var(--fontVarela);
