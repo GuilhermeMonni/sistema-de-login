@@ -1,46 +1,52 @@
 <?php
+session_start();
 require_once("conexao.php");
+$error = '';
 
-if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['nome'])) {  
+if ($_SERVER['REQUEST_METHOD'] == "POST") {  
     $nome = trim($_POST['nome']);
-    $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+    $email_raw = trim($_POST['email']);
     $senha = trim($_POST['senha']);
-    $hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    if(empty($nome) || empty($email) || empty($senha)){
-        die("Todos os campos são obrigatórios!");
+    if(empty($nome) || empty($email_raw) || empty($senha)){
+        $erro = "Preencha todos os campos!";
+    } 
+
+    elseif(strlen($nome) < 3){
+        $erro = "O nome deve ter no mínimo 3 caracteres!";
     }
-
-    if(!$email){
-        die("E-mail inválido!");
-    }
-
-    if(strlen($senha) < 8){
-        die("A senha deve ter no mínimo 8 caracteres!");
-    }
-
-    if(strlen($nome) < 3){
-        die("O nome deve ter no mínimo 3 caracteres!");
-    }
-
-    $sql = $mysqli->prepare("SELECT * FROM usuarios WHERE EMAIL = ?");
-    $sql->bind_param("s", $email);
-    $sql->execute();
-    $result = $sql->get_result();
-    $count = $result->num_rows;
     
+    elseif(!filter_var($email_raw, FILTER_VALIDATE_EMAIL)){
+        $erro = "E-mail inválido!";
+    }
 
-    if ($count == 1) {
-        die("Este email já está cadastrado! <p><a href='cadastro.php'>Tentar outro email</a></p>");
-    } else {
-        $sql_insert = $mysqli->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(?, ?, ?)");
-        $sql_insert->bind_param("sss", $nome, $email, $hash);
-        $sql_insert->execute();
+    elseif(strlen($senha) < 8){
+        $erro = "A senha deve ter no mínimo 8 caracteres!";
+    }    
+
+    else{
+        $email = filter_var($email_raw, FILTER_VALIDATE_EMAIL);
         
-        if($sql_insert->affected_rows > 0){
-            include("cadastrado.php");
-        }else{
-            die("Erro ao cadastrar usuário.");
+        $sql = $mysqli->prepare("SELECT * FROM usuarios WHERE EMAIL = ?");
+        $sql->bind_param("s", $email);
+        $sql->execute();
+        $result = $sql->get_result();
+        $count = $result->num_rows;
+
+        if ($count == 1) {
+            $erro = "Este email já está cadastrado!";
+        } else {
+            $hash = password_hash($senha, PASSWORD_DEFAULT);
+            
+            $sql_insert = $mysqli->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(?, ?, ?)");
+            $sql_insert->bind_param("sss", $nome, $email, $hash);
+            $sql_insert->execute();
+            
+            if($sql_insert->affected_rows > 0){
+                $sucess = true;
+            }else{
+                $erro = "Erro ao cadastrar usuário. Tente novamente.";
+            }
         }
     }
 }
@@ -54,14 +60,40 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['nome'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/style-main.css">
+    <link rel="stylesheet" href="estilos/style-sweet.css">
     <link rel="stylesheet" href="estilos/style-root.css">
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
     <script src="scripts/eyesScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Cadastre-se</title>
 </head>
 
 <body>
+    <?php if(isset($sucess)): ?>
+    <script>
+    // user registered
+    Swal.fire({
+        icon: 'success',
+        title: 'Cadastro realizado!',
+        text: 'Sua conta foi criada com sucesso.',
+        confirmButtonText: 'Login'
+    }).then(() => {
+        window.location.href = 'index.php';
+    });
+    </script>
+    <?php endif; ?>
+    <?php if(isset($erro)): ?>
+    <script>
+    // error register
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '<?php echo addslashes($erro); ?>',
+        confirmButtonText: 'Voltar'
+    });
+    </script>
+    <?php endif; ?>
     <h1>Dashnet</h1>
     <form action="cadastro.php" method="POST">
         <h3 id="subtitle">Insira as seguintes informações:</h3>
