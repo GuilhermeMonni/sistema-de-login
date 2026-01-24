@@ -42,11 +42,15 @@ if(!isset($_SESSION['id'])){
     </header>
 
     <main class="main-content">
-        <div class="welcome-card">
-            <h2>Bem-vindo,
-                <?php echo htmlspecialchars(explode(' ', $_SESSION['nome'])[0], ENT_QUOTES, 'UTF-8'); ?>!</h2>
-            <p class="subtitle">Você está logado no Dashnet</p>
-        </div>
+        <form class="post-form">
+            <textarea id="post-content" name="content" placeholder="No que você está pensando?" rows="4"
+                maxlength="500"></textarea>
+
+            <div class="post-actions">
+                <span class="char-counter">0/500</span>
+                <button type="submit" class="btn-publish">Publicar</button>
+            </div>
+        </form>
     </main>
 
     <footer>
