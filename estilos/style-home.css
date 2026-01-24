@@ -1,0 +1,145 @@
+body{
+  overflow: scroll;
+}
+.header-home {
+    background-color: var(--colorBlack);
+    color: var(--colorWhite);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 112, 243, 0.3);
+    height: 5rem;
+}
+
+.logo-container h1 {
+    font-family: var(--fontFarsan);
+    font-weight: bolder;
+    font-size: 2em;
+    margin: 0;
+    color: var(--colorWhite);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-icon {
+    margin-right: 0.5rem;
+}
+
+.user-name {
+    font-family: var(--fontRoboto);
+    font-weight: 500;
+    font-size: 1em;
+    color: var(--colorWhite);
+}
+
+.btn-logout {
+    background-color: rgba(224, 52, 52, 0.896);
+    color: var(--colorWhite);
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+    font-family: var(--fontRoboto);
+    font-weight: 500;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-logout:hover {
+    transform: scale(1.01);
+    background-color: red;
+}
+
+.btn-edit{
+    background-color: var(--colorAzulSecundary);
+    color: var(--colorWhite);
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+    font-family: var(--fontRoboto);
+    font-weight: 500;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-edit:hover {
+    transform: scale(1.01);
+    background-color: var(--colorAzul);
+}
+
+.main-content {
+    padding: 2rem;
+    min-height: calc(100vh - 9rem);
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.welcome-card {
+    background-color: var(--colorBlack);
+    color: var(--colorWhite);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 20rem;
+    min-width: 20rem;
+    flex-shrink: 0;
+    margin: 4rem auto 0 0;
+    align-self: flex-start;
+    box-shadow: 0 4px 20px rgba(0, 112, 243, 0.3);
+}
+.welcome-card h2 {
+    font-family: var(--fontFarsan);
+    font-weight: bolder;
+    font-size: 2em;
+    margin: 0 0 0.5rem 0;
+    color: var(--colorWhite);
+}
+
+.subtitle {
+    font-family: var(--fontVarela);
+    font-size: 1em;
+    color: lightgray;
+    margin-bottom: 2rem;
+}
+
+.edit {
+    display: flex;
+    flex-direction: column; 
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 968px) {
+    .main-content {
+        flex-direction: column; /* ✅ Card em cima, conteúdo embaixo no mobile */
+        margin-top: 12rem;
+    }
+
+    .welcome-card {
+        width: 100%;
+        max-width: 100%;
+        position: relative; /* ✅ Remove sticky no mobile */
+        top: 0;
+    }
+
+    .action-buttons {
+        flex-direction: row; /* ✅ Volta horizontal no mobile */
+        flex-wrap: wrap;
+    }
+}

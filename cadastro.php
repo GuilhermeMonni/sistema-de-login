@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once("conexao.php");
-$error = '';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {  
     $nome = trim($_POST['nome']);

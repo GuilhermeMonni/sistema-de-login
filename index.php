@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once("conexao.php");  
-$error = '';
+require_once("conexao.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if(empty($_POST['email']) || empty($_POST['senha'])){
