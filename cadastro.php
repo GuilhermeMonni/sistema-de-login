@@ -94,6 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     });
     </script>
     <?php endif; ?>
+    <a href="index.php"><button id="btn_return"><i class="bi bi-arrow-left-square-fill"></i>
+            Voltar</button></a>
     <h1>Dashnet</h1>
     <form action="cadastro.php" method="POST">
         <h3 id="subtitle">Insira as seguintes informações:</h3>

@@ -2,6 +2,17 @@ body {
   text-align: center;
   background-color: var(--colorWhiteSnow);
 }
+
+#btn_return {
+  /* btn return pag */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4.3rem;
+  cursor: pointer;
+  color: var(--colorWhite);
+  background-color: var(--colorBlack);
+}
 h1{
   margin: 5rem auto 0;
   font-family: var(--fontFarsan);
@@ -78,9 +89,6 @@ form p {
   font-weight: 500;
   font-size: 0.9em;
   color: var(--colorForm);
-}
-form p:hover{
-    color: var(--colorWhite);
 }
 form a {
   font-family: var(--fontRoboto);
