@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $senha = trim($_POST['senha']);
         
         if(!$email){
-            $error = "E-mail inválido!";
+            $error = "E-mail ou senha incorretos!";
         } else {
             $sql = $mysqli->prepare("SELECT id, nome, senha FROM usuarios WHERE email = ?");
             $sql->bind_param("s", $email);
@@ -45,15 +45,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/style-main.css">
     <link rel="stylesheet" href="estilos/style-root.css">
+    <link rel="stylesheet" href="estilos/style-sweet.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="scripts/eyesScript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
     <title>Login</title>
 </head>
 
 <body>
-    <?php if($error): ?>
-    <div class="erro"><?php echo htmlspecialchars($error); ?></div>
+    <?php if(isset($error)): ?>
+    <script>
+    // error login
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '<?php echo addslashes($error); ?>',
+        confirmButtonText: 'Voltar'
+    });
+    </script>
     <?php endif; ?>
     <h1>Dashnet</h1>
     <form action="index.php" method="POST">
