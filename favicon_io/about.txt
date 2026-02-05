@@ -1,6 +1,6 @@
 This favicon was generated using the following font:
 
-- Font Title: Roboto Slab
-- Font Author: Copyright 2018 The Roboto Slab Project Authors (https://github.com/googlefonts/robotoslab)
-- Font Source: https://fonts.gstatic.com/s/robotoslab/v34/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISWaG5iddG-1A.ttf
-- Font License: Apache License, version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html))
+- Font Title: Glory
+- Font Author: undefined
+- Font Source: https://fonts.gstatic.com/s/glory/v17/q5uasoi9Lf1w5t3Est24nq9blIRQwImDpn-dDi9EOQ.ttf
+- Font License: undefined)
