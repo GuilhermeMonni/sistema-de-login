@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <script src="scripts/eyesScript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
-    <title>Login</title>
+    <title>DashNet - Login</title>
 </head>
 
 <body>
@@ -70,12 +70,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <div class="form_div">
             <input type="text" name="email" id="input_email" required>
             <label for="email">E-mail</label>
-            <img src="imagens/icon_login.png" alt="Icone email" id="icon_login">
+            <img src="https://res.cloudinary.com/dzbdewkbp/image/upload/v1770328078/e-mail_rh3ca6.png" alt="Icone email"
+                class="form_icons" id="icon_login">
         </div>
         <div class="form_div">
             <input type="password" name="senha" id="input_senha" oninput="on_pass()" required>
             <label for="senha">Senha</label>
-            <img src="imagens/icon_senha.png" alt="Icone senha" id="icon_senha">
+            <img src="https://res.cloudinary.com/dzbdewkbp/image/upload/v1770328097/cadeado_kszx2t.png"
+                alt="Icone senha" class="form_icons" id="icon_senha">
             <i class="bi bi-eye-fill" id="btn_senha" onclick="eye_pass()"></i>
         </div>
         <div class="cadastro">

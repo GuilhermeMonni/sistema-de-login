@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <script src="scripts/eyesScript.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Cadastre-se</title>
+    <title>DashNet - cadastro</title>
 </head>
 
 <body>
@@ -101,17 +101,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <div class="form_div">
             <input type="text" name="nome" required>
             <label for="nome" class="form_label">Nome</label>
-            <img src="imagens/icon_login.png" alt="Icone de login" class="form_icons">
+            <img src="https://res.cloudinary.com/dzbdewkbp/image/upload/v1770327839/homem-usuario_diarpq.png"
+                alt="Icone login" class="form_icons">
         </div>
         <div class="form_div">
             <input type="text" name="email" required>
             <label for="email" class="form_label">Email</label>
-            <img src="imagens/icon_post.png" alt="Icone de email" class="form_icons">
+            <img src="https://res.cloudinary.com/dzbdewkbp/image/upload/v1770328078/e-mail_rh3ca6.png"
+                alt="Icone de email" class="form_icons">
         </div>
         <div class="form_div">
             <input type="password" name="senha" id="input_senha" oninput="on_pass()" required>
             <label for="senha" class="form_label">Senha</label>
-            <img src="imagens/icon_senha.png" alt="Icone de senha" id="icon_senha">
+            <img src="https://res.cloudinary.com/dzbdewkbp/image/upload/v1770328097/cadeado_kszx2t.png"
+                alt="Icone de senha" class="form_icons" id="icon_senha">
             <i class="bi bi-eye-fill" id="btn_senha" onclick="eye_pass()"></i>
         </div>
         <Button type="submit">Finalizar</Button>

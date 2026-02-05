@@ -74,8 +74,9 @@ form {
   cursor: pointer;
   color: var(--colorBlack);
 }
-.form_div img {
+.form_icons {
   position: absolute;
+  width: 8%;
   right: 0.62rem;
   top: 40%;
   transform: translateY(-50%);

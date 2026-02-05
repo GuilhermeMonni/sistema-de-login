@@ -21,7 +21,7 @@ if(!isset($_SESSION['id'])){
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./scripts/homeScript.js"></script>
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
-    <title>Dashnet - Início</title>
+    <title>Dashnet</title>
 </head>
 
 <body>
