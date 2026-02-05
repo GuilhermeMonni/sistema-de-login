@@ -83,16 +83,19 @@ body{
 }
 
 .main-content {
-    padding: 2rem;
+    padding: 3rem;
     margin: 3rem auto;
     width: 80%;
-    min-height: calc(100vh - 9rem);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     gap: 2rem;
     background-color: red;
 }
 
+.post-form{
+    width: 50%;
+}
 .post-form textarea {
     width: 100%;
     min-height: 100px;
@@ -100,7 +103,7 @@ body{
     font-family: var(--fontRoboto);
     font-size: 0.95rem;
     color: var(--colorWhite);
-    background-color: #1a1a1a;
+    background-color: var(--colorPost);
     border: 2px solid #333;
     border-radius: 8px;
     resize: vertical; 
@@ -123,12 +126,11 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
 }
 
 .char-counter {
     font-family: var(--fontRoboto);
-    font-size: 0.85rem;
+    font-size: 0.7rem;
     color: #666;
 }
 
@@ -136,11 +138,12 @@ body{
     background-color: var(--colorAzul);
     color: var(--colorWhite);
     border: none;
-    padding: 0.7rem 2rem;
+    padding: 0.7rem;
+    width: 15%;
     border-radius: 20px;
     font-family: var(--fontRoboto);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -169,21 +172,3 @@ body{
     margin-top: 2rem;
 }
 
-@media (max-width: 968px) {
-    .main-content {
-        flex-direction: column; /* ✅ Card em cima, conteúdo embaixo no mobile */
-        margin-top: 12rem;
-    }
-
-    .welcome-card {
-        width: 100%;
-        max-width: 100%;
-        position: relative; /* ✅ Remove sticky no mobile */
-        top: 0;
-    }
-
-    .action-buttons {
-        flex-direction: row; /* ✅ Volta horizontal no mobile */
-        flex-wrap: wrap;
-    }
-}
