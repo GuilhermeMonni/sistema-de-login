@@ -1,26 +1,34 @@
 <?php
 
-    $server_remote = false; 
+$server_remote = true;
 
-    if ($server_remote) {
-        $mysqli = new mysqli(
-            getenv('DB_HOST'), 
-            getenv('DB_USER'), 
-            getenv('DB_PASS'), 
-            getenv('DB_NAME')
-        );
-    } else {
-        $mysqli = new mysqli(
-            'localhost',
-            'root',
-            '',
-            'banco'
-        );
-    }
-        
-    if($mysqli->connect_errno){ //err
-        error_log("Erro de conexão: " . $mysqli ->connect_error); //save in log
-        die("Erro ao conectar com o banco.");
-    }
+if ($server_remote) {
+    $pdo = new PDO(
+        "mysql:host=" . getenv('DB_HOST') .
+            ";dbname=" . getenv('DB_NAME') .
+            ";charset=utf8mb4",
+        getenv('DB_USER'),
+        getenv('DB_PASS'),
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]
+    );
+} else {
+    $pdo = new PDO(
+        "mysql:host=localhost;dbname=banco;charset=utf8mb4",
+        'root',
+        '',
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]
+    );
+}
 
-?>
+try {
+    $pdo->query("SELECT 1");
+} catch (PDOException $e) {
+    error_log("Erro de conexão: " . $e->getMessage());
+    die("Erro ao conectar com o banco.");
+}

@@ -90,7 +90,7 @@ body{
     display: flex;
     justify-content: center;
     gap: 2rem;
-    background-color: red;
+    background-color: var(--colorForm);
 }
 
 .post-form{

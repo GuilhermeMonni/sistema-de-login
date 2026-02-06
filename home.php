@@ -6,6 +6,37 @@ if(!isset($_SESSION['id'])){
     header("Location: index.php");
     exit();
 }
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $content = trim($_POST['content'] ?? '');
+    
+    if (empty($content)) {
+        echo json_encode(['error' => 'Conteúdo vazio']); //create popup
+    }
+
+    if (strlen($content) > 500) {
+        echo json_encode(['error' => 'Máximo 500 caracteres']); //create popup
+    }
+    
+    $user_id = $_SESSION['id'];
+
+    try{
+        $stmt = $pdo->prepare("INSERT INTO posts (user_id, content) VALUES (?, ?)");
+        $stmt->execute([$user_id, $content]);
+        
+        echo json_encode([
+            'success' => true, 
+            'message' => 'Post publicado', 
+            'post_id' => $pdo->lastInsertId()
+        ]);
+    } catch(PDOException $e){
+        echo json_encode(['Erro ao publicar: ' . $e->getMessage()]);
+    }
+    
+} else {
+    echo json_encode(['Error' => 'Método não permitido!']);
+} //create popups
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +73,7 @@ if(!isset($_SESSION['id'])){
     </header>
 
     <main class="main-content">
-        <form class="post-form">
+        <form method="POST" class="post-form">
             <textarea id="post-content" name="content" placeholder="No que você está pensando?" rows="4"
                 maxlength="500"></textarea>
 
@@ -51,6 +82,7 @@ if(!isset($_SESSION['id'])){
                 <button type="submit" class="btn-publish">Publicar</button>
             </div>
         </form>
+        🚧 Em desenvolvimento 🚧
     </main>
 
     <footer>
