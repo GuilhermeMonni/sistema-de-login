@@ -16,7 +16,7 @@ if ($server_remote) {
     );
 } else {
     $pdo = new PDO(
-        "mysql:host=localhost;dbname=banco;charset=utf8mb4",
+        "mysql:host=localhost;dbname=database;charset=utf8mb4",
         'root',
         '',
         [

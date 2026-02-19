@@ -26,22 +26,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     else{
         $email = filter_var($email_raw, FILTER_VALIDATE_EMAIL);
         
-        $sql = $mysqli->prepare("SELECT * FROM usuarios WHERE EMAIL = ?");
-        $sql->bind_param("s", $email);
-        $sql->execute();
-        $result = $sql->get_result();
-        $count = $result->num_rows;
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE EMAIL = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch();
 
-        if ($count == 1) {
+        if ($user == 1) {
             $erro = "Este email já está cadastrado!";
         } else {
             $hash = password_hash($senha, PASSWORD_DEFAULT);
             
-            $sql_insert = $mysqli->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(?, ?, ?)");
-            $sql_insert->bind_param("sss", $nome, $email, $hash);
-            $sql_insert->execute();
+            $sql_insert = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) VALUES(?, ?, ?)");
+            $sql_insert->execute([$nome, $email, $hash]);
             
-            if($sql_insert->affected_rows > 0){
+            if($sql_insert->rowCount() > 0){
                 $sucess = true;
             }else{
                 $erro = "Erro ao cadastrar usuário. Tente novamente.";

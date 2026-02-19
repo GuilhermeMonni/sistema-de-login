@@ -95,8 +95,11 @@ form a {
   font-family: var(--fontRoboto);
   font-weight: 500;
   font-size: 1em;
-  color: rgb(14, 113, 193);
+  color: var(--colorAzulSecundary);
   text-decoration: none;
+}
+form a:hover{
+  color: var(--colorAzul);
 }
 button {
   margin: 1.25rem;

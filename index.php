@@ -12,14 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if(!$email){
             $error = "E-mail ou senha incorretos!";
         } else {
-            $sql = $mysqli->prepare("SELECT id, nome, senha FROM usuarios WHERE email = ?");
-            $sql->bind_param("s", $email);
-            $sql->execute();
-            $resultLogin = $sql->get_result();
-            $userLogin = $resultLogin->fetch_assoc();
+            $stmt = $pdo->prepare("SELECT id, nome, senha FROM usuarios WHERE email = ?");
+            $stmt->execute([$email]);
+            $userLogin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($resultLogin->num_rows === 1) {
-                if ($userLogin && password_verify($senha, $userLogin['senha'])) {
+            if ($userLogin && password_verify($senha, $userLogin['senha'])) {
                     session_regenerate_id(true);
                     $_SESSION['id'] = $userLogin['id'];
                     $_SESSION['nome'] = $userLogin['nome'];
@@ -27,9 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     exit();
                 } else {
                     $error = "E-mail ou senha incorretos!";
-                }
-            } else {
-                $error = "E-mail ou senha incorretos!";
             }
         }
     }
